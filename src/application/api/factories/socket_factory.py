@@ -12,7 +12,7 @@ class WebsocketAppFactory:
         self.sio = AsyncServer(async_mode="sanic")
 
     def create_app(self)->Sanic:
-        app = Sanic("Infofusion_WEBSOCKET")
+        app = Sanic("ForeFront_Socket")
         app.config.update(self.config)
         self.sio.attach(app)
         self._register_event_handlers()

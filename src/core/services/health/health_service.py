@@ -38,7 +38,7 @@ class HealthService:
             },
             "app": {
                 "version": ForefrontMetadata().get_version() if ForefrontMetadata().get_version() else "unknown",
-                "name": os.getenv("APP_NAME", "Infofusion"),
+                "name": os.getenv("APP_NAME", "ForeFront"),
                 "description": "TODO", #TODO: implement
                 "dependencies": "TODO", #TODO: implement
             },

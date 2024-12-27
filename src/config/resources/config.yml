@@ -1,10 +1,10 @@
 default:
   forefront_rest:
-    name: "Infofusion_API"
+    name: "Forefront_Rest"
     host: "127.0.0.1"
     port: 8001
   forefront_socket:
-    name: "Infofusion_Websocket"
+    name: "Forefront_Socket"
     host: "127.0.0.1"
     port: 8002  
   database:
