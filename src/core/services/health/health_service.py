@@ -1,6 +1,6 @@
 import datetime
 import os
-from src.config.forefront_metadata import InfoFusionMetadata
+from src.config.forefront_metadata import ForefrontMetadata
 
 
 class HealthService:
@@ -8,7 +8,7 @@ class HealthService:
         pass
 
     async def get_health(self):
-        app_version = InfoFusionMetadata().get_version()       
+        app_version = ForefrontMetadata().get_version()       
         return {
             "app": os.getenv("APP_NAME", "ForeFront"),
             "version": app_version if app_version else "unknown",
@@ -37,7 +37,7 @@ class HealthService:
                 "memory": "TODO", #TODO: implement
             },
             "app": {
-                "version": InfoFusionMetadata().get_version() if InfoFusionMetadata().get_version() else "unknown",
+                "version": ForefrontMetadata().get_version() if ForefrontMetadata().get_version() else "unknown",
                 "name": os.getenv("APP_NAME", "Infofusion"),
                 "description": "TODO", #TODO: implement
                 "dependencies": "TODO", #TODO: implement

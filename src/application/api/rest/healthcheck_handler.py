@@ -4,7 +4,7 @@ import os
 
 from sanic import json
 
-from src.config.forefront_metadata import InfoFusionMetadata
+from src.config.forefront_metadata import ForefrontMetadata
 
 
 class HealthCheckHandler:

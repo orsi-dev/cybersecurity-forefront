@@ -2,7 +2,7 @@ import os
 import tomllib
 from typing import Optional
 
-class InfoFusionMetadata:
+class ForefrontMetadata:
     def __init__(self, filepath: Optional[str] = None):
         '''
         :param filepath: path to the pyproject.toml file
