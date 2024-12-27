@@ -1,0 +1,10 @@
+rest:
+  routes:
+    - url: "/healthcheck"
+      methods: ["GET"]
+      handler: "healthcheck"
+      action: "get"
+  # - url: "/users"
+  #   methods: ["POST"]
+  #   handler: "user"
+  #   action: "create"

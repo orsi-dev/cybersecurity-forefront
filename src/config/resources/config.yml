@@ -1,0 +1,30 @@
+default:
+  forefront_rest:
+    name: "Infofusion_API"
+    host: "127.0.0.1"
+    port: 8001
+  forefront_socket:
+    name: "Infofusion_Websocket"
+    host: "127.0.0.1"
+    port: 8002  
+  database:
+    type: "mongodb"
+    uri: ${DB_CONNECTION_STRING}
+    name: "my_database"
+  queue:
+    type: "rabbitmq"
+    uri: ${QUEUE_CONNECTION_STRING}
+    name: "my_queue"
+  loggers:
+    extend_to_file_path: "resources/logs/app.log" # This is the path to the log file
+
+
+development:
+  app:
+    debug: true
+    host: "127.0.0.1"
+
+production:
+  app:
+    debug: false
+    host: "0.0.0.0"
