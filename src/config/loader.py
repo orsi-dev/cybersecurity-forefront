@@ -2,6 +2,7 @@ import os
 import re
 import yaml
 
+
 class ConfigLoader:
     _instance = None
 
@@ -15,14 +16,14 @@ class ConfigLoader:
         # Default file paths, puoi aggiungere il percorso dei file YAML aggiuntivi
         if config_files is None:
             config_files = ["src/config/resources/config.yml"]
-        
+
         self.config_files = config_files
         self.config = self._load_config()
 
     def _load_config(self):
         env = os.getenv("APP_ENV", "default")
         config_data = {}
-        
+
         # Carica tutte le configurazioni da ciascun file
         for config_file in self.config_files:
             with open(config_file, "r") as file:

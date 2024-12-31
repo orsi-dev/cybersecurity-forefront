@@ -12,11 +12,7 @@ def load_config(app_type: str) -> dict:
     logger = LoggerConfig.get_logger(__name__)
     try:
         logger.info("Loading application configuration...")
-        config = ConfigLoader(
-            config_files=[
-                "src/config/resources/config.yml",
-                "src/config/resources/rest.yml"]
-            )
+        config = ConfigLoader(config_files=["src/config/resources/config.yml", "src/config/resources/rest.yml"])
         app_config = config.get(app_type)
         if not app_config:
             raise ValueError("App configuration is missing or empty.")
@@ -53,6 +49,7 @@ def create_app(app_type: str) -> Sanic:
 
 def app_factory_loader() -> Sanic:
     import sys
+
     if len(sys.argv) < 2:
         print("Usage: python main.py <app_type>")
         print("app_type: forefront_rest | forefront_socket")
@@ -67,11 +64,13 @@ if __name__ == "__main__":
         app_loader = AppLoader(factory=app_factory_loader)
         app = app_loader.load()
         port = app.config.get("port", 8000)
-        app.prepare(port=port, debug=True, dev=True, auto_reload=True)          
+        app.prepare(port=port, debug=True, dev=True, auto_reload=True)
         print("Registered Routes:")
         for i, (uri, route) in enumerate(app.router.routes_all.items(), start=1):
             # `route.handler` è la funzione gestore della rotta
-            print(f"Route {i}, Name: {route.handler.__name__}, Methods: {', '.join(route.methods)}, URI: /{'/'.join(uri)}")    
+            print(
+                f"Route {i}, Name: {route.handler.__name__}, Methods: {', '.join(route.methods)}, URI: /{'/'.join(uri)}"
+            )
         Sanic.serve(primary=app, app_loader=app_loader)
     except ValueError as ve:
         print(f"Configuration Error: {ve}")
@@ -79,4 +78,3 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"Unexpected error: {e}")
         sys.exit(1)
-

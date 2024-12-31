@@ -1,0 +1,26 @@
+[project]
+name = "CyberSecurity Forefront"
+version = "0.1.0"
+description = "CyberSecurity Forefront is a Python package that provides a set of connectors to interact with different CyberSecurity APIs."
+authors = [{name = "Mattia Orsi", email = "orsi.dev@gmail.com"}]
+license = "Apache-2.0"
+keywords = ["cybersecurity", "api"]
+readme = "README.md"
+requires-python = ">=3.11"
+[tool.black]
+line-length = 120
+target-version = ['py39']
+skip-string-normalization = false
+exclude = '''
+/(
+    \.git
+  | \.mypy_cache
+  | \.pytest_cache
+  | build
+  | dist
+  | venv
+  | __pycache__
+  | _build
+  | docs
+)/
+'''

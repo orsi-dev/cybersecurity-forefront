@@ -29,7 +29,7 @@ class RestAppFactory:
         logger.debug(f"REST app created: {app}")
         if not isinstance(app, Sanic):
             raise ValueError("The factory must return a Forefront sanic app")
-        
+
         return app
 
     def _setup_middlewares(self, app):

@@ -4,6 +4,25 @@ rest:
       methods: ["GET"]
       handler: "healthcheck"
       action: "get"
+      params: []
+    # - url: "/login"
+    #   methods: ["POST"]
+    #   handler: "auth"
+    #   action: "login"
+    - url: "/register"
+      methods: ["POST"]
+      handler: "register"
+      action: "register_user"
+      params:
+      - name: "email"
+        type: "str"
+        required: true
+      - name: "password"
+        type: "str"
+        required: true
+      - name: "display_name"
+        type: "str"
+        required: true
   # - url: "/users"
   #   methods: ["POST"]
   #   handler: "user"
