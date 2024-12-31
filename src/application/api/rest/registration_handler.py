@@ -13,3 +13,9 @@ class RegistrationHandler:
         await self.service.register_user(email, password, display_name)
         self.logger.info("User registered successfully")
         return json({"message": "User registered successfully"}, status=200)
+
+    async def delete_user(self, uid: str) -> dict:
+        self.logger.info("Deleting user with uid: %s", uid)
+        await self.service.delete_user(uid)
+        self.logger.info("User deleted successfully")
+        return json({"message": "User deleted successfully"}, status=200)

@@ -9,9 +9,9 @@ rest:
     #   methods: ["POST"]
     #   handler: "auth"
     #   action: "login"
-    - url: "/register"
+    - url: "/user/signup"
       methods: ["POST"]
-      handler: "register"
+      handler: "user_account"
       action: "register_user"
       params:
       - name: "email"
@@ -23,6 +23,15 @@ rest:
       - name: "display_name"
         type: "str"
         required: true
+    - url: "/user/delete"
+      methods: ["POST"]
+      handler: "user_account"
+      action: "delete_user"
+      params:
+      - name: "uid"
+        type: "str"
+        required: true
+
   # - url: "/users"
   #   methods: ["POST"]
   #   handler: "user"

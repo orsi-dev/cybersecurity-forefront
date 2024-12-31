@@ -28,6 +28,6 @@ class ServiceBootstrap:
 
         return {
             "healthcheck": HealthCheckHandler(HealthService()),
-            "register": RegistrationHandler(FirebaseService(firebase_adapter=firebase_adapter)),
+            "user_account": RegistrationHandler(FirebaseService(firebase_adapter=firebase_adapter)),
             # "user": UserHandler(UserService()),
         }

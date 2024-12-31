@@ -13,3 +13,10 @@ class FirebaseService:
             return self.firebase_adapter.create_user(email, password, display_name)
         except ValueError as e:
             raise ValueError(f"Failed to register user: {str(e)}")
+
+    async def delete_user(self, uid: str):
+        logging.info("Deleting user with uid: %s", uid)
+        try:
+            return self.firebase_adapter.delete_user(uid)
+        except ValueError as e:
+            raise ValueError(f"Failed to delete user: {str(e)}")
